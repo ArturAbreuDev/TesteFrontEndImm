@@ -1,0 +1,92 @@
+[
+  {
+    "titulo": "Aula 1",
+    "descricao": "Aprenda os conceitos fundamentais de bancos de dados nesta aula introdutória. Explore modelos de dados, consultas SQL e mais.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Banco de dados",
+    "nivel": "Iniciante",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 2",
+    "descricao": "Nesta aula intermediária de desenvolvimento de software, você vai aprimorar suas habilidades de programação e aprender boas práticas de desenvolvimento.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Desenvolvimento de Software",
+    "nivel": "Intermediário",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 3",
+    "descricao": "Explore técnicas avançadas de modelagem de dados e otimização de consultas em bancos de dados nesta aula avançada.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Banco de dados",
+    "nivel": "Avançado",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 4",
+    "descricao": "Aprenda princípios de design e usabilidade nesta aula introdutória sobre design. Descubra como criar interfaces atraentes e funcionais.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Design",
+    "nivel": "Iniciante",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 5",
+    "descricao": "Nesta aula intermediária de desenvolvimento de software, você vai aprofundar seu conhecimento em frameworks populares e construção de APIs.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Desenvolvimento de Software",
+    "nivel": "Intermediário",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 6",
+    "descricao": "Aprenda técnicas avançadas de bancos de dados, como indexação avançada e replicação, nesta aula avançada para profissionais experientes.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Banco de dados",
+    "nivel": "Avançado",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 7",
+    "descricao": "Explore os princípios de design de interfaces e aprenda a criar layouts atraentes e acessíveis nesta aula introdutória sobre design.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Design",
+    "nivel": "Intermediário",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 8",
+    "descricao": "Nesta aula avançada de desenvolvimento de software, você vai dominar técnicas de arquitetura de software e escalabilidade de sistemas.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Desenvolvimento de Software",
+    "nivel": "Avançado",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 9",
+    "descricao": "Aprofunde-se em tópicos avançados de bancos de dados, como otimização de consultas complexas e técnicas de segurança nesta aula especializada.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Banco de dados",
+    "nivel": "Avançado",
+    "professor": "Prof Luis Suarez",
+    "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  },
+  {
+    "titulo": "Aula 10",
+    "descricao": "Aprenda os fundamentos do design gráfico e explore diferentes ferramentas de design nesta aula introdutória sobre design.",
+    "imagem": "https://cdni.iconscout.com/illustration/premium/thumb/java-developer-developed-website-6818021-5607822.png",
+    "categoria": "Design",
+    "nivel": "Avançado",
+    "professor": "Prof Luis Suarez"
+    , "icone_professor": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Fportaldogremista.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2FSuarez-Gremio-3-2.jpg"
+  }
+]
