@@ -28,6 +28,8 @@ interface ContextProps {
   setData: Dispatch<SetStateAction<DataType[]>>
   login: string
   setLogin: Dispatch<SetStateAction<string>>
+  userLogin: boolean
+  setUserLogin: Dispatch<SetStateAction<boolean>>
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -46,7 +48,9 @@ const GlobalContext = createContext<ContextProps>({
   data: [],
   setData: (): DataType[] => [],
   login: '',
-  setLogin: (): string => '',
+  setLogin: (): boolean => '',
+  userLogin: '',
+  setUserLogin: (): boolean => '',
 })
 
 export const GlobalContextProvider = ({ children }: any) => {
@@ -58,6 +62,7 @@ export const GlobalContextProvider = ({ children }: any) => {
   const [id, setId] = useState('')
   const [login, setLogin] = useState('')
   const [data, setData] = useState<[] | DataType[]>([])
+  const [userLogin, setUserLogin] = useState(false)
 
   return (
     <GlobalContext.Provider
@@ -74,6 +79,8 @@ export const GlobalContextProvider = ({ children }: any) => {
         setData,
         login,
         setLogin,
+        userLogin,
+        setUserLogin,
         useremail,
         setUserEmail,
         userpassword,

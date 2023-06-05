@@ -11,8 +11,8 @@ export default function Header() {
   const {
     setUserId,
     userId,
-    login,
-    setLogin,
+    userLogin,
+    setUserLogin,
     useremail,
     setUserEmail,
     setUserPassword,
@@ -20,6 +20,8 @@ export default function Header() {
   } = useGlobalContext()
 
   const [cadastrar, setCadastrar] = useState(false)
+  const [login, setLogin] = useState(false)
+  const [putsenha, setputsenha] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -30,6 +32,7 @@ export default function Header() {
 
   const fecharModal = () => {
     setLogin(false)
+    setputsenha(false)
   }
 
   const abrirModalsig = () => {
@@ -38,6 +41,11 @@ export default function Header() {
 
   const fecharModalsig = () => {
     setCadastrar(false)
+  }
+
+  const PutSenha = () => {
+    setputsenha(true)
+    console.log(putsenha)
   }
 
   const handleSubmit = async (e: any) => {
@@ -118,6 +126,67 @@ export default function Header() {
     // Limpar campos após a criação do usuário
   }
 
+  const handleSubmitPut = async (e) => {
+    e.preventDefault()
+
+    if (email === '' || password === '' || confirmPassword === '') {
+      toast.error('Preencha todos os campos', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+      return
+    }
+
+    if (password !== confirmPassword) {
+      toast.error('As senhas não coincidem', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+      return
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/putpass', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, newPassword: password }),
+      })
+
+      if (response.ok) {
+        console.log('Senha alterada com sucesso')
+        toast.success('Senha alterada com sucesso', {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        })
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+        setLogin(false)
+        setputsenha(false)
+      }
+    } catch (error) {
+      console.error('Erro de rede:', error)
+    }
+  }
+
   const handleSubmitlogin = async (e) => {
     e.preventDefault()
 
@@ -135,20 +204,34 @@ export default function Header() {
         setUserId(userData.id)
         setUserEmail(userData.email)
         setUserPassword(userData.password)
+        setUserLogin(true)
+        setLogin(false)
 
         setEmail('')
         setPassword('')
         console.log(userId)
         console.log(useremail)
         console.log(userpassword)
+        console.log(userLogin)
 
         // Other fields you want to clear
       } else {
-        const errorData = await response.json()
+        toast.error('Usuario ou senha, estão incorretos!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
       }
     } catch (error) {
       console.error('Erro de rede:', error)
     }
+  }
+  const Sair = () => {
+    setUserLogin(false)
   }
 
   return (
@@ -157,101 +240,204 @@ export default function Header() {
         <ToastContainer />
         {/* Renderizar o modal somente se a variável "login" for true */}
         {login && (
-          <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-50 py-10 backdrop-blur">
+          <div className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-opacity-50 py-10 backdrop-blur">
             <div className="mx-auto flex w-11/12 max-w-2xl flex-col rounded-lg border border-gray-300 shadow-xl sm:w-5/6 lg:w-1/2">
               <div className="flex flex-row justify-between rounded-tl-lg rounded-tr-lg border-b border-gray-200 bg-white p-6">
-                <p className="font-semibold text-gray-800">Faça seu login</p>
-                <svg
-                  className="h-6 w-6 hover:cursor-pointer hover:text-gray-100"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  ></path>
-                </svg>
+                {putsenha ? (
+                  <>
+                    <div className="flex w-full flex-row justify-between rounded-tl-lg rounded-tr-lg bg-white p-6">
+                      <div className="flex items-center">
+                        <svg
+                          onClick={() => {
+                            setputsenha(false)
+                          }}
+                          className="h-6 w-6 hover:cursor-pointer hover:text-gray-100"
+                          fill="none"
+                          stroke="black"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                          ></path>
+                        </svg>
+                        <p className="ml-2 font-semibold text-gray-800">
+                          Recuperar senha
+                        </p>
+                      </div>
+                      <svg
+                        onClick={fecharModal}
+                        className="h-6 w-6 hover:cursor-pointer hover:text-gray-100"
+                        fill="none"
+                        stroke="black"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        ></path>
+                      </svg>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-semibold text-gray-800">
+                      Faça seu login
+                    </p>
+                    <svg
+                      onClick={fecharModal}
+                      className="h-6 w-6 hover:cursor-pointer hover:text-gray-100"
+                      fill="none"
+                      stroke="black"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
+                    </svg>
+                  </>
+                )}
               </div>
               <div className="flex flex-col bg-gray-50 px-6 py-5 text-black">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-col bg-gray-50 px-6 py-5">
-                    <div className="relative mb-3 w-full">
-                      <label
-                        className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
-                        htmlFor="email"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    <div className="relative mb-3 w-full">
-                      <label
-                        className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
-                        htmlFor="password"
-                      >
-                        Senha
-                      </label>
-                      <input
-                        type="password"
-                        id="password"
-                        className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
-                        placeholder="Senha"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label className="inline-flex cursor-pointer items-center">
-                        <input
-                          id="customCheckLogin"
-                          type="checkbox"
-                          className="form-checkbox text-blueGray-700 ml-1 h-5 w-5 rounded border-0 transition-all duration-150 ease-linear"
-                        />
-                        <span className="text-blueGray-600 ml-2 text-sm font-semibold text-black">
-                          Lembrar-me
-                        </span>
-                      </label>
-                    </div>
+                    {putsenha ? (
+                      <>
+                        <div className="relative mb-3 w-full">
+                          <label
+                            className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
+                            htmlFor="email"
+                          >
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </div>
+                        <div className="relative mb-3 w-full">
+                          <label
+                            className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
+                            htmlFor="password"
+                          >
+                            Senha
+                          </label>
+                          <input
+                            type="password"
+                            id="password"
+                            className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
+                            placeholder="Senha"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                        </div>
+                        <div className="relative mb-3 w-full">
+                          <label
+                            className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
+                            htmlFor="password"
+                          >
+                            Confirmar senha
+                          </label>
+                          <input
+                            type="password"
+                            id="password"
+                            className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
+                            placeholder="Senha"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          onClick={handleSubmitPut}
+                          className="mt-4 w-full rounded bg-indigo-500 px-4 py-2 font-semibold text-white hover:bg-indigo-600"
+                        >
+                          Alterar
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <div className="relative mb-3 w-full">
+                          <label
+                            className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
+                            htmlFor="email"
+                          >
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </div>
+                        <div className="relative mb-3 w-full">
+                          <label
+                            className="text-blueGray-600 mb-2 block text-xs font-bold uppercase"
+                            htmlFor="password"
+                          >
+                            Senha
+                          </label>
+                          <input
+                            type="password"
+                            id="password"
+                            className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
+                            placeholder="Senha"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <label
+                            onClick={PutSenha}
+                            className="inline-flex cursor-pointer items-center"
+                          >
+                            <span className="text-blueGray-600 ml-2 text-sm font-semibold text-black">
+                              Esqueceu da senha?
+                            </span>
+                          </label>
+                        </div>
+                        <button
+                          type="submit"
+                          onClick={handleSubmitlogin}
+                          className="mt-4 w-full rounded bg-indigo-500 px-4 py-2 font-semibold text-white hover:bg-indigo-600"
+                        >
+                          Entrar
+                        </button>
+                      </>
+                    )}
                   </div>
                 </form>
-              </div>
-
-              <div className="flex flex-row items-center justify-between rounded-bl-lg rounded-br-lg border-t border-gray-200 bg-white p-5">
-                <button
-                  onClick={fecharModal}
-                  className="rounded bg-red-500 px-4 py-2 font-semibold text-white"
-                >
-                  Cancelar
-                </button>
-                <button
-                  onClick={handleSubmitlogin}
-                  className="rounded bg-blue-500 px-4 py-2 font-semibold text-white"
-                >
-                  Salvar
-                </button>
               </div>
             </div>
           </div>
         )}
+
         {cadastrar && (
-          <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-50 py-10 backdrop-blur">
+          <div className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-opacity-50 py-10 backdrop-blur">
             <div className="mx-auto flex w-11/12 max-w-2xl flex-col rounded-lg border border-gray-300 shadow-xl sm:w-5/6 lg:w-1/2">
               <div className="flex flex-row justify-between rounded-tl-lg rounded-tr-lg border-b border-gray-200 bg-white p-6">
                 <p className="font-semibold text-gray-800">Faça seu Cadastro</p>
                 <svg
-                  className="h-6 w-6 hover:cursor-pointer hover:text-gray-100"
+                  className="h-6 w-6 text-black hover:cursor-pointer hover:text-gray-100"
                   fill="none"
+                  onClick={fecharModalsig}
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -347,18 +533,35 @@ export default function Header() {
           </span>
         </Link>
         <div className="flex items-center lg:order-2">
-          <button
-            onClick={abrirModal}
-            className="text-white-800 dark:hover:bg-white-700 dark:focus:ring-white-800 mr-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-black text-white hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-white dark:text-white lg:px-5 lg:py-2.5"
-          >
-            Login
-          </button>
-          <button
-            onClick={abrirModalsig}
-            className=" dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2 rounded-lg bg-purple-400 px-4 py-2 text-sm font-medium text-white hover:bg-purple-500 focus:outline-none focus:ring-4 lg:px-5 lg:py-2.5"
-          >
-            Sign in
-          </button>
+          {!userLogin ? (
+            <>
+              <button
+                onClick={abrirModal}
+                className="text-white-800 dark:hover:bg-white-700 dark:focus:ring-white-800 mr-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-black text-white hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-white dark:text-white lg:px-5 lg:py-2.5"
+              >
+                Entrar
+              </button>
+              <button
+                onClick={abrirModalsig}
+                className=" dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2 rounded-lg bg-purple-400 px-4 py-2 text-sm font-medium text-white hover:bg-purple-500 focus:outline-none focus:ring-4 lg:px-5 lg:py-2.5"
+              >
+                Cadastrar
+              </button>
+            </>
+          ) : (
+            <>
+              <h1 className="mr-10 animate-bounce text-purple-500">
+                Bem vindo {useremail}!
+              </h1>
+              <button
+                onClick={Sair}
+                className="text-white-800 dark:hover:bg-white-700 dark:focus:ring-white-800 mr-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-black text-white hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-white dark:text-white lg:px-5 lg:py-2.5"
+              >
+                Sair
+              </button>
+            </>
+          )}
+
           <button
             data-collapse-toggle="mobile-menu-2"
             type="button"
@@ -400,7 +603,7 @@ export default function Header() {
           <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
             <li>
               <Link
-                href="/aula1"
+                href="/aulas"
                 className="bg-primary-700 lg:text-primary-700 block rounded py-2 pl-3 pr-4 text-black  dark:text-black lg:bg-transparent lg:p-0"
                 aria-current="page"
               >
@@ -408,29 +611,29 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="Manutencao"
                 className="lg:hover:text-primary-700 border-white-100 hover:bg-white-50 dark:border-white-700 dark:text-black-400 dark:hover:bg-white-700 block border-b py-2 pl-3 pr-4 text-black dark:hover:text-black lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-black"
               >
                 Empresa
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="Manutencao"
                 className="lg:hover:text-primary-700 border-white-100 hover:bg-white-50 dark:border-white-700 dark:text-white-400 dark:hover:bg-white-700 block border-b py-2 pl-3 pr-4 text-black dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
               >
                 Time
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href="#"
+              <Link
+                href="Manutencao"
                 className="lg:hover:text-primary-700 border-white-100 dark:border-white-700 dark:text-white-400 dark:hover:bg-white-700 block border-b py-2 pl-3 pr-4 text-black hover:bg-white dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
               >
                 Contato
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
