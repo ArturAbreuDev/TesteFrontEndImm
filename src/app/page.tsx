@@ -7,7 +7,6 @@ import { toast } from 'react-toastify'
 export default function Home() {
   const { useremail, userLogin } = useGlobalContext()
   const [cadastrar, setCadastrar] = useState(false)
-  const [login, setLogin] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -161,10 +160,9 @@ export default function Home() {
                   <li className="flex items-center">
                     <div className="rounded-full bg-green-200 fill-current p-2 text-green-700">
                       <svg
-                        className="h-4 w-4"
+                        className="icon-umbrella h-4 w-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        className="icon-umbrella"
                       >
                         <path
                           className="primary"
@@ -183,10 +181,9 @@ export default function Home() {
                   <li className="mt-3 flex items-center">
                     <div className="rounded-full bg-green-200 fill-current p-2 text-green-700">
                       <svg
-                        className="h-4 w-4"
+                        className="icon-shopping-bag h-4 w-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        className="icon-shopping-bag"
                       >
                         <path
                           className="primary"
@@ -205,10 +202,9 @@ export default function Home() {
                   <li className="mt-3 flex items-center">
                     <div className="rounded-full bg-green-200 fill-current p-2 text-green-700">
                       <svg
-                        className="h-4 w-4"
+                        className="icon-pie-chart h-4 w-4"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        className="icon-pie-chart"
                       >
                         <path
                           className="primary"
