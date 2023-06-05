@@ -42,7 +42,7 @@ export default function Home() {
     setAulas(aulasData)
   }
 
-  const handleFavoritoClick = (index) => {
+  const handleFavoritoClick = (index: any) => {
     const updatedAulas = [...aulas]
     updatedAulas[index].favorito = !updatedAulas[index].favorito
     setAulas(updatedAulas)
