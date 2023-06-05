@@ -48,9 +48,9 @@ const GlobalContext = createContext<ContextProps>({
   data: [],
   setData: (): DataType[] => [],
   login: '',
-  setLogin: (): boolean => '',
-  userLogin: '',
-  setUserLogin: (): boolean => '',
+  setLogin: (): boolean => false,
+  userLogin: false,
+  setUserLogin: (): boolean => false,
 })
 
 export const GlobalContextProvider = ({ children }: any) => {

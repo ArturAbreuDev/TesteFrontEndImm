@@ -126,7 +126,7 @@ export default function Header() {
     // Limpar campos após a criação do usuário
   }
 
-  const handleSubmitPut = async (e) => {
+  const handleSubmitPut = async (e: any) => {
     e.preventDefault()
 
     if (email === '' || password === '' || confirmPassword === '') {
@@ -187,7 +187,7 @@ export default function Header() {
     }
   }
 
-  const handleSubmitlogin = async (e) => {
+  const handleSubmitlogin = async (e: any) => {
     e.preventDefault()
 
     try {
