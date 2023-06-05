@@ -109,8 +109,8 @@ export default function Home() {
                 <h3 className="text-2xl">Bem-vindo, {useremail}!</h3>
                 <h5 className="mb-3 text-xl">Impulsione seus conhecimentos</h5>
                 <p className="text-sm text-indigo-200">
-                  "A única maneira de fazer um ótimo trabalho é amar o que você
-                  faz." - Steve Jobs
+                  &quot;A única maneira de fazer um ótimo trabalho é amar o que
+                  você faz.&quot; - Steve Jobs
                 </p>
               </div>
             </div>
