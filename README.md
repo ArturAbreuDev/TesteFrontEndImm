@@ -28,7 +28,7 @@ O objetivo do site é fornecer uma plataforma para exibir aulas e permitir que o
 Estou trabalhando para colocar o site na vercel, mas enquanto isso nao acontece voce pode usar o app no seu localhost!
 - depois de clonar o projeto adicione esse comando no terminal "npm install"
 - Use o XAMPP ou outro banco de dados! depois de criado o banco de dados troque o ".env" pelo seu banco de dados
-- Agora é só dar um "NPM RUN DEV" e site sera emulado! 
+- Agora é só dar um "NPM RUN DEV" e o site sera emulado! 
 
 
 
