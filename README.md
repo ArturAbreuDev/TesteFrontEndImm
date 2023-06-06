@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aplicativo Saúde
+## (Atualizado) - 15/05/2023
+### Este projeto é aplicativo genérico para planos de saúde, permite enviar informações de um cartão virtual por NFC e recebe notificações personalizadas!
 
-## Getting Started
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-First, run the development server:
+Foi criado um website para o [Saúde Web](https://saude-web.vercel.app/), onde podemos enviar mensagens para o celular!
+O projeto explicado está acessível em: https://github.com/Bigodrigo/NotIPE
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- HTML e CSS
+- JavaScript e JSON
+- React, React Native, Native Base
+- [Expo](https://docs.expo.dev/)
+- [HCE NFC](https://github.com/cactuser/react-native-nfc-hce#README.md)
+- [Notifee](https://notifee.app/)
+- [Firebase](https://firebase.google.com/docs?hl=pt-br)
+- [Node e NPM](https://nodejs.org/)
 
-## Learn More
+## 💻 Projeto
 
-To learn more about Next.js, take a look at the following resources:
+A ideia do app é simples, substituir um cartão físico, acessar as informações do usuário e enviar mensagens personalizadas através das notificações (push)!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O Cartão vai permitir NFC(Aproximação), as informações são obtidas por API e mostradas na tela.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+O Desenvolvimento foi feito em React que usa linguagem de JavaScript. É necessário buscar entender o Expo GO, React, Native Base, Firebase, APIs e o funcionamento do NFC!
 
-## Deploy on Vercel
+O projeto foi finalizado até o nível de protótipo. Se vc quiser testar o aplicativo, basta baixar o [APK](/Apk%20Donwload/application-e2c8e862-80e5-4b41-a43e-585c4c562cfd.apk).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Se vc deseja clonar este projeto é importante saber que alguns arquivos precisam ser alterados e outros foram removidos para garantir a segurança das informações!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [ ] android/app/google-services.json
+- [ ] firebase.js
+- [ ] src/screens/Login.js
+- [ ] src/screens/Registro.js
+
+## 🔖 Layout
+
+<div align="center">
+<img src="/src/assets/IPE-App.gif" width="270" height="555">
+</div>
+
+## Melhorias?
+- [ ] Responder as mensagens sem abrir o aplicativo;
+- [ ] Adicionar o Storage do FB para enviar imagens e documentos;
+- [ ] Informar ao usuário que todos os campos precisam ser preenchidos na primeira alteração dos dados;
+- [ ] Fatorar o código, substituindo alguns arquivos ou screens por componentes:
+    - fileUpload;
+    - JanelaPerfil;
+    - OpenCamera;
+    - GetFetureView;
+    - Virtualized;
+    - ic_launcher_round.
