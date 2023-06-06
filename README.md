@@ -6,7 +6,7 @@
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Instalação">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 
@@ -23,6 +23,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 O objetivo do site é fornecer uma plataforma para exibir aulas e permitir que os usuários filtrem, visualizem os detalhes e marquem aulas como favoritas. Além disso, há também a implementação de um sistema de autenticação.
 
 
+## 💻 Instalação
+
+Estou trabalhando para colocar o site na vercel, mas enquanto isso nao acontece voce pode usar o app no seu localhost!
+- depois de clonar o projeto adicione esse comando no terminal "npm install"
+- Use o XAMPP ou outro banco de dados! depois de criado o banco de dados troque o ".env" pelo seu banco de dados
+- Agora é só dar um "NPM RUN DEV" e site sera emulado! 
+
+
 
 ## 🔖 Layout
 
@@ -34,6 +42,7 @@ O objetivo do site é fornecer uma plataforma para exibir aulas e permitir que o
 </div>
 
 ## Melhorias?
+- [ ] Colocar o site na vercel!;
 - [ ] Colocar mais informaçoes no cadastro como Nome, telefone e etc...;
 - [ ] Colocar no banco de dados a JSON para possibilitar que os favoritos fiquem salvos mesmo depois de sair da conta!
 - [ ] Substituir o CONTEXT por JWT para melhorar a segurança e etc...;
