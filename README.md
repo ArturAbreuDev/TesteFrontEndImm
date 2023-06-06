@@ -51,3 +51,4 @@ Estou trabalhando para colocar o site na vercel, mas enquanto isso nao acontece 
 - [ ] Fatorar o código, substituindo alguns arquivos ou screens por componentes;
 - [ ] Utilizar uma biblioteca nodemailer que envia email para recuperar a senha...
 - [ ] Utilizar uma api que verifica que o email exista antes de criar a conta!
+- [ ] Melhorar a responsividade usando as tags do TAILWINDCSS
