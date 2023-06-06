@@ -26,10 +26,10 @@ O objetivo do site é fornecer uma plataforma para exibir aulas e permitir que o
 ## 🔖 Layout
 
 <div align="center">
-<img src="/public/login.png" width="270" height="555">
+<img src="/public/login.png">
 </div>
 <div align="center">
-<img src="/public/aulas.png" width="270" height="555">
+<img src="/public/aulas.png">
 </div>
 
 ## Melhorias?
