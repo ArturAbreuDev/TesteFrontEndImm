@@ -27,7 +27,9 @@ O objetivo do site é fornecer uma plataforma para exibir aulas e permitir que o
 
 Estou trabalhando para colocar o site na vercel, mas enquanto isso nao acontece voce pode usar o app no seu localhost!
 - depois de clonar o projeto adicione esse comando no terminal "npm install"
-- Use o XAMPP ou outro banco de dados! depois de criado o banco de dados troque o ".env" pelo seu banco de dados
+- Crie um banco de dados na nuvem ou utilize o mysql do XAMPP, agora coloque o "link" dele no .env
+- Depois de criar o seu banco de dados e colocar a informacao dele no .env, digite esse codigo para ser criado a tabela do prisma... npx prisma migrate dev --name nome-da-migracao
+- Com esse codigo adicionado no terminal do seu projeto, ele estara pronto para ser usado, seu banco de dados ja estara preparado!
 - Agora é só dar um "NPM RUN DEV" e o site sera emulado! 
 
 
